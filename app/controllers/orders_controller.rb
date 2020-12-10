@@ -5,7 +5,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    render json: {message: "order created"}
+    
+    
+    render json: {message: params[:dishes]}
   end
 
   def update 
@@ -14,5 +16,10 @@ class OrdersController < ApplicationController
 
   def archive 
 
+  end
+
+  private
+  def create_params
+    params.permit(:dishes)
   end
 end
