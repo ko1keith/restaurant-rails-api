@@ -32,7 +32,7 @@ class AccountsController < ApplicationController
     @account = Account.find_by(email: params[:email])
     if @account && @account.authenticate(params[:password])
       token = encode_token({account_id: @account.id})
-      render json: {account: @account, token: token}
+      render json: {token: token},status: 200
     else
       render json: {error: "Invalid username or password"}
     end

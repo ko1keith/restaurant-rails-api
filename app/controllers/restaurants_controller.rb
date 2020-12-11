@@ -3,7 +3,8 @@ class RestaurantsController < ApplicationController
   #get /restaurants
   def index 
     restaurants = Restaurant.all
-    return render json: {restaurants: restaurants}
+    first = restaurants.first
+    return render json: restaurants
   end
 
   def create 
