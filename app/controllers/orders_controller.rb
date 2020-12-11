@@ -5,8 +5,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    
-    
     render json: {message: params[:dishes]}
   end
 
