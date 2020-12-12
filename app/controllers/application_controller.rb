@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  include ::ActionController::Cookies
+
   before_action :authorized
 
   def encode_token(payload)
@@ -36,4 +38,5 @@ class ApplicationController < ActionController::API
   def authorized
     render json: {message: 'Please log in'}, status: 403 unless logged_in?
   end
+
 end
