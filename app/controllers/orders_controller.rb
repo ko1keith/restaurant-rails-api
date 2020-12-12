@@ -8,12 +8,9 @@ class OrdersController < ApplicationController
     restaurant = Restaurant.find_by(id: create_params[:restaurant_id])
     return render json: {error: "restaurant not found"}, status: 404 unless restaurant
 
-    dishes = [] 
-    create_params[:dishes].each do |dish_order|
-      dish = Dish.find_by(id: dish_order[0].to_i)
-      return render json: {error: "dish not found"}, status:404 unless dish
-      dishes << dish
-    end
+    dishes = Dish.where(id: create_params[:dishes].keys.map{|key| key.to_i})
+    return render json: {error: "dish(es) not found"}, status:404 unless dishes.count == create_params[:dishes].keys.count
+
     
     render json: {dishes: ActiveModel::Serializer::CollectionSerializer.new(dishes, each_serializer: DishSerializer)}
   end
