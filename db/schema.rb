@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_191305) do
+ActiveRecord::Schema.define(version: 2020_12_14_222210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 2020_12_14_191305) do
     t.integer "restaurant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "dish_ids", default: [], array: true
+    t.text "dish_ids", default: "{}"
     t.decimal "price"
     t.text "dish_quantities"
     t.boolean "is_archived", default: false
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_orders_on_account_id"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
   end
 
@@ -55,5 +57,6 @@ ActiveRecord::Schema.define(version: 2020_12_14_191305) do
     t.index ["account_id"], name: "index_restaurants_on_account_id"
   end
 
+  add_foreign_key "orders", "accounts"
   add_foreign_key "restaurants", "accounts"
 end
