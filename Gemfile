@@ -16,8 +16,10 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 gem 'active_model_serializers'
 gem 'bcrypt', '~> 3.1.7'
+gem 'discard', '~> 1.2'
 gem 'jwt'
 gem 'rack-cors'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

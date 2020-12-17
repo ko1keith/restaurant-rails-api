@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_222210) do
+ActiveRecord::Schema.define(version: 2020_12_16_221457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(version: 2020_12_14_222210) do
     t.text "dish_quantities"
     t.boolean "is_archived", default: false
     t.bigint "account_id"
+    t.datetime "discarded_at"
     t.index ["account_id"], name: "index_orders_on_account_id"
+    t.index ["discarded_at"], name: "index_orders_on_discarded_at"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
   end
 

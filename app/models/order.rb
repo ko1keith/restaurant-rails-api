@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  include Discard::Model
   belongs_to :restaurant
   belongs_to :account
 

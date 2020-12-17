@@ -71,6 +71,8 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    discard (1.2.0)
+      activerecord (>= 4.2, < 7)
     erubi (1.10.0)
     ffi (1.13.1)
     globalid (0.4.2)
@@ -167,6 +169,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
+  discard (~> 1.2)
   jwt
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -176,7 +179,6 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
 
 RUBY VERSION
    ruby 2.6.6p146

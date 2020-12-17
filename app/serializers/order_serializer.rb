@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :restaurant_id, :price, :updated_at, :dish_ids, :is_archived, :account
+  attributes :restaurant_id, :price, :created_at, :dish_ids, :is_archived, :account
 
   def dish_ids
     JSON.parse object.dish_ids
